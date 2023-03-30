@@ -1,0 +1,4 @@
+Hamburguesa;20000;almuerzo,cena;Comedor,Habitación
+Pizza (personal);15000;cena;Comedor,Habitación
+Calentao paisa;7000;desayuno;Habitación
+Bandeja Paisa;10000;Almuerzo;Comedor,Habitación

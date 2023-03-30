@@ -1,0 +1,4 @@
+1;Estandar;2do piso;4 camas;10 de enero;18 de marzo;viernes,sabado,domingo;f;f;f;kingsize,queensize,doble,semidoble
+2;Suite;1er piso;5 camas;10 de febrero;18 de abril;lunes,martes,miercoles;t;f;t;sencilla,kingsize,doble,infantil,sencilla
+3;DoubleSuite;3er piso;6 camas;10 de mayo;18 de junio;jueves,viernes,sabado;t;t;t;kingsize,queensize,doble,infantil,sencilla,semidoble
+4;Estandar;4to piso;4 camas;10 de julio;18 de septiembre;domingo,lunes,martes;f;f;f;kingsize,doble,doble,semidoble

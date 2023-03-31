@@ -1,11 +1,7 @@
-Coca-Cola;2,50;desayuno,almuerzo;Comedor,Habitacion
-Agua mineral;1,50;comida;Comedor,Habitacion
-Té helado;3,00;desayuno,almuerzo;Habitacion
-Cerveza;4,50; desayuno,almuerzo;Comedor,Habitacion
-Cafe;2,00;comida;Comedor
-Limonada;2,75; desayuno,almuerzo;Comedor,Habitacion
-Vino tinto;6,00;desayuno,almuerzo;Comedor,Habitacion
-Refresco de naranja;2,25;comida;Comedor
-Jugo de piña;2,50;desayuno,almuerzo;Comedor
-Agua con gas;2,75;desayuno,almuerzo;Comedor,Habitacion
-
+Coca-Cola;20;desayuno,almuerzo;Comedor,Habitacion
+Agua mineral;10;comida;Comedor,Habitacion
+Té helado;30;desayuno,almuerzo;Habitacion
+Cerveza;45; desayuno,almuerzo;Comedor,Habitacion
+Cafe;20;comida;Comedor
+Limonada;27; desayuno,almuerzo;Comedor,Habitacion
+Vino tinto;60;desayuno,almuerzo;Comedor,Habitacion  

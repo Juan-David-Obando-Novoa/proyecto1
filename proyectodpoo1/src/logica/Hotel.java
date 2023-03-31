@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.io.*;
 
 import logica.Huesped;
@@ -14,19 +16,21 @@ import logica.Habitacion;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date; 
+import java.util.Date;
+import java.util.HashMap; 
 
 
 public class Hotel {
 	//Atributos//
 	private ArrayList<Habitacion> habitaciones;
 	private ArrayList<Huesped> grupos;
-	private ArrayList<Servicio> servicios;
+	private Map<String, Servicio> servicios;
 	private ArrayList<Usuario> usuarios; 
 	private Restaurante restaurante = new Restaurante();
 	
 	//Constructor//
 	public Hotel(){
+	this.servicios = new HashMap<String, Servicio>();
 	}
 	
 	
@@ -43,13 +47,13 @@ public class Hotel {
 
 
 
-	public ArrayList<Servicio> getServicios() {
+	public Map<String, Servicio> getServicios() {
 		return servicios;
 	}
 
 
 
-	public void setServicios(ArrayList<Servicio> servicios) {
+	public void setServicios(Map<String, Servicio> servicios) {
 		this.servicios = servicios;
 	}
 
@@ -130,9 +134,10 @@ public class Hotel {
 	            String line = scanner.nextLine();
 
 	            String[] partes = line.split(";"); 
-	            System.out.print(partes);
+	            if (partes.length >= 4) {
 	            String nombre = partes[0];
-	            double precio = Double.parseDouble(partes[1]);
+	            int precio = Integer.parseInt(partes[1]);
+	            		
 	            String[] disponible = partes[2].split(",");
 	            String[] ubicacion = partes[3].split(",");
 	          
@@ -140,12 +145,15 @@ public class Hotel {
 	            Bebida bebida = new Bebida(nombre, precio, disponible, ubicacion); 
 	            
 	            bebidas.add(bebida);
-	  
+	            }else {
+	            	System.out.println(partes.length);
+	            	System.out.println(partes[0]);
+	            }
 	          
 	        }
 	        
 	        restaurante.setBebidas(bebidas);
-	        
+
 	        scanner.close();
 	        return bebidas;
 	    }		
@@ -164,7 +172,7 @@ public class Hotel {
 			String[] partes = line.split(";"); 
 			            
 			String nombre = partes[0];
-			double precio = Double.parseDouble(partes[1]);
+			int precio = Integer.parseInt(partes[1]);	
 			String[] disponible = partes[2].split(",");
 			String[] ubicacion = partes[3].split(",");
 			          
@@ -184,14 +192,14 @@ public class Hotel {
 		
 		
 		
-		public List<Servicio> cargarservicios(String filename) throws FileNotFoundException {	
+		public void cargarservicios(String filename) throws FileNotFoundException {	
 			File file = new File(filename);
 			Scanner scanner = new Scanner(file);
-			ArrayList<Servicio> servicios = new ArrayList<>();
 						
 						
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
+				System.out.println(line);
 				            
 				String[] partes = line.split(";"); 
 				            
@@ -206,15 +214,13 @@ public class Hotel {
 				            
 				Servicio servicio = new Servicio(nombre, ubicacion, precio, dias, horario, tipoCobro); 
 				            
-				servicios.add(servicio);
-				  
-				          
-				}
-				        
-				this.servicios= servicios;     
+				this.servicios.put(nombre,servicio);        
+				}     
 				System.out.print("los servicios son "+ getServicios()); 
 				scanner.close();
-				return servicios;
+				for(String nombre :this.servicios.keySet()) {
+					System.out.println(nombre);
+				}
 				    }		
 		
 	}

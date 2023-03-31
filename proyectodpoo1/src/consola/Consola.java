@@ -6,12 +6,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.io.*;
 import java.util.Scanner;
+import java.util.Set;
 
 import logica.Habitacion;
 import logica.Hotel;
 import logica.Restaurante;
+import logica.Servicio;
+import logica.Bebida;
+import logica.Factura;
 
 public class Consola {
 
@@ -65,14 +70,16 @@ public class Consola {
 		boolean continuar = true;
 		while (continuar) {
 			try {
-
 				mostrarMenu();
 				Hotel hotelito = new Hotel();
+				Restaurante restaurantico = new Restaurante();
 				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
 
 				if (opcion_seleccionada == 1) {
 					boolean continuar1 = true;
 					while (continuar1) {
+					
+						try {
 
 						opcionesAdmin();
 
@@ -89,16 +96,47 @@ public class Consola {
 								System.out.println(habitacion.toString());
 							}
 						} else if (opcion_admin == 2) {
-						String tipohabitacion = input("Por favor ingrese el tipo de habitacion que desea cambiar");
-						int tarifa = Integer.parseInt(input("Por favor ingrese la tarifa"));
+							
+						boolean error = true;
+						while(error) {
+						String tipohabitacion = input("Por favor ingrese el tipo de habitacion que desea cambiar(Ej:suit,estandar,doubleSuite)");
+						int tarifa = Integer.parseInt(input("Por favor ingrese la tarifa(Ej: un numero)"));
 						String fecha_inicial = input("Por favor ingrese la fecha inicial en la que aplicar la factura (Ej: 29/03/2023)");
-						String fecha_final = input("Por favor ingrese la fecha final en la que aplicar la factura(Ej: 29/03/2023)");
+						String fecha_final = input("Por favor ingrese la fecha final en la que aplicar la factura(Ej: 30/03/2023)");
+						try {
 						hotelito.cambiartarifas(tipohabitacion, tarifa, fecha_inicial, fecha_final);
+						error = false;
+
+						}catch(IllegalArgumentException e) {
+						System.out.println("Asegurese de poner todo en el formato adecuado");
+						}
+						}
+						
 						} else if (opcion_admin == 3) {
 							hotelito.cargarplatos("data\\platos.txt");
 							hotelito.cargarbebidas("data\\bebidas.txt");
 							hotelito.cargarservicios("data\\servicios.txt");
+							
+							
 						} else if (opcion_admin == 4) {
+							System.out.println("Eliga cual de los siguientes servicios desea modificar");
+							System.out.println("1. Servicios del hotel");
+							System.out.println("2. Platos del restaurante");
+							System.out.println("3. Bebeidas del restaurante");
+							int modificar=Integer.parseInt(input("Por favor seleccione una opción"));
+							if (modificar==1) {
+								System.out.println("Estos son los servicios del hotel");
+								
+							}
+							else if(modificar==2) {
+								System.out.println("Estos son las bebidas del hotel");
+								int contador = 1;
+								
+								
+							}
+							else if(modificar==3) {
+								System.out.println("Estos son los platos del hotel");
+							}
 
 						}
 
@@ -106,9 +144,13 @@ public class Consola {
 							System.out.println("Saliendo de admin ...");
 							continuar1 = false;
 						}
-
+						
+					} catch (NumberFormatException e) {
+						System.out.println("Debe seleccionar uno de los números de las opciones.");
 					}
-				}
+					}
+					}
+				
 
 				else if (opcion_seleccionada == 2) {
 					boolean continuar2 = true;
@@ -152,6 +194,13 @@ public class Consola {
 							// AQUÍ VAN LOS REQURIMIENTOS
 
 							if (opcion_empleado == 1) {
+								Factura nuevafactura= new Factura();
+								Map<String, Servicio> servicios=hotelito.getServicios();
+								Set<String> nombresServicios= servicios.keySet();
+								System.out.println("Cual de los siguientes servicios desea agregar a la factura?");
+								for (String nombre:nombresServicios) {
+									System.out.println(nombre);
+								}
 
 							}
 
@@ -172,6 +221,7 @@ public class Consola {
 					System.out.println("Por favor seleccione una opción válida.");
 				}
 			} catch (NumberFormatException e) {
+				System.out.println(e);
 				System.out.println("Debe seleccionar uno de los números de las opciones.");
 			}
 		}

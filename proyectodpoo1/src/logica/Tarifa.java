@@ -9,7 +9,7 @@ private static SimpleDateFormat fechafinalsuit;
 private static int estandar;
 private static SimpleDateFormat fechainicialestandar;
 private static SimpleDateFormat fechafinalestandar;
-private static int DoubleSuite;
+private static int doubleSuite;
 private static SimpleDateFormat fechainicialDoubleSuite;
 private static SimpleDateFormat fechafinalDoubleSuite;
 
@@ -26,7 +26,7 @@ this.estandar=0;
 this.fechainicialestandar= new SimpleDateFormat("11/1/2022");
 this.fechafinalestandar= new SimpleDateFormat("11/12/2022");
 
-this.DoubleSuite=0;
+this.doubleSuite=0;
 this.fechainicialestandar= new SimpleDateFormat("11/5/2022");
 this.fechafinalestandar= new SimpleDateFormat("11/6/2023");
 
@@ -133,7 +133,7 @@ public static void setFechafinalestandar(SimpleDateFormat fechafinalestandar) {
 
 
 public static int getDoubleSuite() {
-	return DoubleSuite;
+	return doubleSuite;
 }
 
 
@@ -141,7 +141,7 @@ public static int getDoubleSuite() {
 
 
 public static void setDoubleSuite(int doubleSuite) {
-	DoubleSuite = doubleSuite;
+	doubleSuite = doubleSuite;
 }
 
 

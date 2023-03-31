@@ -5,7 +5,13 @@ import logica.Producto;
 public class Plato extends Producto{
 
 	
-public Plato(String nombre, double precio, String[] disponible, String[] ubicacion) {
+public Plato(String nombre, int precio, String[] disponible, String[] ubicacion) {
 	super(nombre,precio, disponible, ubicacion); 
 }
+public String printplatos() {
+	String respuesta=  super.nombre + "\nPreciobase: "+ super.precio + "\n"; 
+	return respuesta; 
+}
+
+
 }

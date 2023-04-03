@@ -1,0 +1,3 @@
+Guia turistico; entrada del hotel; 12000;lunes,martes,jueves,sabado;12:00-16:00;grupo
+Parapente; monte;25000;miercoles;14:00-16:00;persona
+Spa;centro de spa;80000;juves,viernes;11:00-16:00;persona

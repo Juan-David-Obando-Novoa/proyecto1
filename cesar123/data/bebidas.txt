@@ -1,0 +1,7 @@
+Coca-Cola;20;desayuno,almuerzo;Comedor,Habitacion
+Agua mineral;10;comida;Comedor,Habitacion
+Té helado;30;desayuno,almuerzo;Habitacion
+Cerveza;45; desayuno,almuerzo;Comedor,Habitacion
+Cafe;20;comida;Comedor
+Limonada;27; desayuno,almuerzo;Comedor,Habitacion
+Vino tinto;60;desayuno,almuerzo;Comedor,Habitacion  
